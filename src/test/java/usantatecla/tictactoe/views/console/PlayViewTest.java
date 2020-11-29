@@ -9,8 +9,8 @@ import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.PlayController;
 import usantatecla.tictactoe.models.Coordinate;
-import usantatecla.tictactoe.types.Error;
 import usantatecla.tictactoe.models.Token;
+import usantatecla.tictactoe.types.Error;
 import usantatecla.tictactoe.views.Message;
 import usantatecla.utils.Console;
 
@@ -120,6 +120,7 @@ public class PlayViewTest {
             console.when(Console::getInstance).thenReturn(this.console);
             this.playView.interact(this.playController);
             verify(this.playController).put(new Coordinate(0, 0));
+            verify(this.playController).continueState();
             verify(this.console).writeln(Message.PLAYER_WIN.getMessage());
         }
     }
@@ -138,6 +139,7 @@ public class PlayViewTest {
             console.when(Console::getInstance).thenReturn(this.console);
             this.playView.interact(this.playController);
             verify(this.playController).put(coordinate);
+            verify(this.playController).continueState();
             verify(this.console).writeln(Message.PLAYER_WIN.toString());
         }
     }
@@ -155,6 +157,7 @@ public class PlayViewTest {
             console.when(Console::getInstance).thenReturn(this.console);
             this.playView.interact(this.playController);
             verify(this.playController).move(new Coordinate(0, 0), new Coordinate(1, 1));
+            verify(this.playController).continueState();
             verify(this.console).writeln(Message.PLAYER_WIN.toString());
         }
     }
@@ -174,6 +177,7 @@ public class PlayViewTest {
             console.when(Console::getInstance).thenReturn(this.console);
             this.playView.interact(this.playController);
             verify(this.playController).move(origin, target);
+            verify(this.playController).continueState();
             verify(this.console).writeln(Message.PLAYER_WIN.toString());
         }
     }
