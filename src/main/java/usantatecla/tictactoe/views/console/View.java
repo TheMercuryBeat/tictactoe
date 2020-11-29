@@ -47,4 +47,9 @@ public class View extends usantatecla.tictactoe.views.View implements Controller
 	public void visit(PlayController playController) {
 		this.playView.interact(playController);
 	}
+
+	@Override
+	public void visit(ResumeController resumeController) {
+
+	}
 }
