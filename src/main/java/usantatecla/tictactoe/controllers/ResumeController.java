@@ -17,6 +17,10 @@ public class ResumeController extends Controller {
         this.game.reset();
     }
 
+    public void resume(boolean newGame) {
+
+    }
+
     @Override
     public void accept(ControllerVisitor controllerVisitor) {
         controllerVisitor.visit(this);
