@@ -13,16 +13,19 @@ public class ResumeControllerTest extends ControllerTest {
     private ResumeController resumeController;
 
     @Spy
+    private Game game;
+
+    @Spy
     private State state;
 
     @BeforeEach
-    void beforeStartController() {
+    void beforeResumeController() {
         this.resumeController = createController();
     }
 
     @Override
     protected ResumeController createController() {
-        return new ResumeController(new Game(), this.state);
+        return new ResumeController(this.game, this.state);
     }
 
     @Override
@@ -34,6 +37,13 @@ public class ResumeControllerTest extends ControllerTest {
     public void testWhenNoResumeShouldChangeNextState() {
         this.resumeController.resume(false);
         verify(this.state).next();
+    }
+
+    @Test
+    public void testWhenResumeShouldResetGameAndResetState() {
+        this.resumeController.resume(true);
+        verify(this.game).reset();
+        verify(this.state).reset();
     }
 
 }
