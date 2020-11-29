@@ -2,6 +2,7 @@ package usantatecla.tictactoe.controllers;
 
 
 import usantatecla.tictactoe.models.Game;
+import usantatecla.tictactoe.models.State;
 import usantatecla.tictactoe.models.StateValue;
 
 import java.util.HashMap;
@@ -10,10 +11,12 @@ import java.util.Map;
 public class Logic {
 
     private Game game;
+    private State state;
     private Map<StateValue, Controller> controllers;
 
     public Logic() {
         this.game = new Game();
+        this.state = new State();
         this.controllers = new HashMap<>();
         this.controllers.put(StateValue.INITIAL, new StartController(this.game));
         this.controllers.put(StateValue.IN_GAME, new PlayController(this.game));
@@ -22,7 +25,7 @@ public class Logic {
     }
 
     public Controller getController() {
-        return null;
+        return this.controllers.get(this.state.getValueState());
     }
 
 }
