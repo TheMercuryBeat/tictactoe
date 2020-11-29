@@ -23,9 +23,9 @@ public class StateTest {
     @Test
     public void testGivenStateWhenDoNextShouldReturnTheStateValue() {
 
-        for (StateValue stateValue : StateValue.values()) {
+        for (int i = 1; i < StateValue.values().length; i++) {
             this.state.next();
-            assertThat(this.state.getValueState(), is(equalTo(stateValue)));
+            assertThat(this.state.getValueState(), is(equalTo(StateValue.values()[i])));
         }
 
     }
