@@ -21,7 +21,11 @@ class ResumeView {
 	}
 
 	boolean interact(ResumeController resumeController) {
-		return false;
+		boolean isResumed = new YesNoDialog().read(Message.RESUME.toString());
+		if (isResumed){
+			resumeController.resume();
+		}
+		return isResumed;
 	}
 
 }
