@@ -1,6 +1,8 @@
 package usantatecla.tictactoe.views;
 
-public abstract class View {
+import usantatecla.tictactoe.controllers.ControllerVisitor;
+
+public abstract class View implements ControllerVisitor {
 
     public void interact() {
         do {
@@ -10,6 +12,7 @@ public abstract class View {
     }
 
     protected abstract void start();
+
     protected abstract void play();
     protected abstract boolean isResumed();
 

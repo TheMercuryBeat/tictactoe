@@ -1,11 +1,10 @@
 package usantatecla.tictactoe.views.console;
 
-import usantatecla.tictactoe.controllers.ControllerVisitor;
 import usantatecla.tictactoe.controllers.PlayController;
 import usantatecla.tictactoe.controllers.ResumeController;
 import usantatecla.tictactoe.controllers.StartController;
 
-public class View extends usantatecla.tictactoe.views.View implements ControllerVisitor {
+public class View extends usantatecla.tictactoe.views.View {
 
 	private StartView startView;
 	private PlayView playView;
