@@ -41,6 +41,7 @@ public class PlayController extends Controller {
 	}
 
 	public void continueState() {
+		this.state.next();
 	}
 
 	@Override
