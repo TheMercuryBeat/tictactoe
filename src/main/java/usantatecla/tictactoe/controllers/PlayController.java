@@ -1,9 +1,9 @@
 package usantatecla.tictactoe.controllers;
 
 import usantatecla.tictactoe.models.Coordinate;
-import usantatecla.tictactoe.types.Error;
 import usantatecla.tictactoe.models.Game;
 import usantatecla.tictactoe.models.Token;
+import usantatecla.tictactoe.types.Error;
 
 public class PlayController extends Controller {
 
@@ -35,4 +35,8 @@ public class PlayController extends Controller {
 		return this.game.move(origin, target);
 	}
 
+	@Override
+	public void accept(ControllerVisitor controllerVisitor) {
+
+	}
 }
