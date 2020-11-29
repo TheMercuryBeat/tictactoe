@@ -50,6 +50,6 @@ public class View extends usantatecla.tictactoe.views.View implements Controller
 
 	@Override
 	public void visit(ResumeController resumeController) {
-
+		this.resumeView.interact(resumeController);
 	}
 }
