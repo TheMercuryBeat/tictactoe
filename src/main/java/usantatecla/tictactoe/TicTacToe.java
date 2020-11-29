@@ -24,6 +24,8 @@ public abstract class TicTacToe {
 
     protected abstract View createView(StartController startController, PlayController playController, ResumeController resumeController2);
 
+    protected abstract View createView();
+
     protected void play() {
         this.view.interact();
     }

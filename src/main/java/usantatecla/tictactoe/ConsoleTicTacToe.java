@@ -15,4 +15,9 @@ class ConsoleTicTacToe extends TicTacToe {
 	protected View createView(StartController startController, PlayController playController, ResumeController resumeController){
 		return new View(startController, playController, resumeController);
 	}
+
+	@Override
+	protected View createView() {
+		return null;
+	}
 }
