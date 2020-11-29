@@ -21,6 +21,9 @@ public class StartController extends Controller {
         return this.game.getMaxPlayers();
     }
 
+    public void start() {
+    }
+
     @Override
     public void accept(ControllerVisitor controllerVisitor) {
         controllerVisitor.visit(this);
