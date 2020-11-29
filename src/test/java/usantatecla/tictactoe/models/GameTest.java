@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import usantatecla.tictactoe.types.Error;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
 public class GameTest {
@@ -192,9 +191,4 @@ public class GameTest {
         assertThat(game.equals(game), is(true));
     }
 
-    @Test
-    void testGivenNewGameWhenGetsValueStateThenReturnStateValue() {
-        Game game = new GameBuilder().build();
-        assertThat(game.getValueState(), is(equalTo(StateValue.INITIAL)));
-    }
 }
