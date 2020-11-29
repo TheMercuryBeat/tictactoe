@@ -70,6 +70,7 @@ public class ResumeViewTest {
             when(this.console.readChar(anyString())).thenReturn('y');
             console.when(Console::getInstance).thenReturn(this.console);
             assertTrue(this.resumeView.interact(this.resumeController));
+            verify(this.resumeController).resume(true);
         }
     }
 }
