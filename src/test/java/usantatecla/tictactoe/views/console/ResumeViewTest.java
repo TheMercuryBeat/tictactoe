@@ -13,6 +13,8 @@ import usantatecla.utils.Console;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
@@ -51,6 +53,24 @@ public class ResumeViewTest {
             this.resumeController.resume();
             console.when(Console::getInstance).thenReturn(this.console);
             assertThat(this.resumeView.interact(), is(true));
+        }
+    }
+
+    @Test
+    void testGivenNewGameIsFalseWhenAResumeControllerIsPassedByParameterAndInteractThenIsFalse() {
+        try (MockedStatic console = mockStatic(Console.class)) {
+            when(this.console.readChar(anyString())).thenReturn('n');
+            console.when(Console::getInstance).thenReturn(this.console);
+            assertFalse(this.resumeView.interact(this.resumeController));
+        }
+    }
+
+    @Test
+    void testGivenNewGameIsTrueWhenAResumeControllerIsPassedByParameterAndInteractThenIsTrue() {
+        try (MockedStatic console = mockStatic(Console.class)) {
+            when(this.console.readChar(anyString())).thenReturn('y');
+            console.when(Console::getInstance).thenReturn(this.console);
+            assertTrue(this.resumeView.interact(this.resumeController));
         }
     }
 }

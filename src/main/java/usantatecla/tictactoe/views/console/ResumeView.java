@@ -20,4 +20,8 @@ class ResumeView {
 		return isResumed;
 	}
 
+	boolean interact(ResumeController resumeController) {
+		return false;
+	}
+
 }
