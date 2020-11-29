@@ -8,6 +8,9 @@ class StartView {
 
     private StartController startController;
 
+    public StartView() {
+    }
+
     StartView(StartController startController) {
         assert startController != null;
 

@@ -8,6 +8,9 @@ class ResumeView {
 
 	private ResumeController resumeController;
 
+	public ResumeView() {
+	}
+
 	public ResumeView(ResumeController resumeController){
 		this.resumeController = resumeController;
 	}

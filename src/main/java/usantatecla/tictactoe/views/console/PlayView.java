@@ -9,6 +9,9 @@ class PlayView {
 
     private PlayController playController;
 
+    public PlayView() {
+    }
+
     PlayView(PlayController playController) {
         this.playController = playController;
     }
