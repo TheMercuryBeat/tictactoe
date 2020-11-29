@@ -16,7 +16,7 @@ public class PlayControllerTest extends ControllerTest {
     private State state;
 
     @BeforeEach
-    void beforeStartController() {
+    void beforePlayController() {
         this.playController = createController();
     }
 
