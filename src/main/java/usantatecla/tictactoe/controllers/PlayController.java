@@ -37,6 +37,6 @@ public class PlayController extends Controller {
 
 	@Override
 	public void accept(ControllerVisitor controllerVisitor) {
-
+		controllerVisitor.visit(this);
 	}
 }
