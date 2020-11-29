@@ -1,10 +1,11 @@
 package usantatecla.tictactoe.views.console;
 
+import usantatecla.tictactoe.controllers.ControllerVisitor;
 import usantatecla.tictactoe.controllers.PlayController;
 import usantatecla.tictactoe.controllers.ResumeController;
 import usantatecla.tictactoe.controllers.StartController;
 
-public class View extends usantatecla.tictactoe.views.View {
+public class View extends usantatecla.tictactoe.views.View implements ControllerVisitor {
 
 	private StartView startView;
 	private PlayView playView;
@@ -28,12 +29,18 @@ public class View extends usantatecla.tictactoe.views.View {
 	}
 
 	@Override
-	protected void play(){
+	protected void play() {
 		this.playView.interact();
 	}
 
 	@Override
-	protected boolean isResumed(){
+	protected boolean isResumed() {
 		return this.resumeView.interact();
 	}
+
+	@Override
+	public void visit(StartController startController) {
+
+	}
+
 }
