@@ -30,4 +30,13 @@ public class StateTest {
 
     }
 
+    @Test
+    public void testAnyStateWhenDoResetShouldReturnTheInitialStateValue() {
+
+        this.state.next();
+        this.state.reset();
+
+        assertThat(this.state.getValueState(), is(equalTo(StateValue.INITIAL)));
+    }
+
 }
