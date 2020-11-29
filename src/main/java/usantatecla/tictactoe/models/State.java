@@ -6,6 +6,7 @@ public class State {
     private StateValue stateValue;
 
     public State() {
+        this.stateValue = StateValue.INITIAL;
     }
 
     public void reset() {
@@ -15,7 +16,7 @@ public class State {
     }
 
     public StateValue getValueState() {
-        return null;
+        return stateValue;
     }
 
 }
