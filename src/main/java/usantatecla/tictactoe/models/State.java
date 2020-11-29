@@ -6,10 +6,11 @@ public class State {
     private StateValue stateValue;
 
     public State() {
-        this.stateValue = StateValue.INITIAL;
+        this.reset();
     }
 
     public void reset() {
+        this.stateValue = StateValue.INITIAL;
     }
 
     public void next() {
@@ -17,7 +18,7 @@ public class State {
     }
 
     public StateValue getValueState() {
-        return stateValue;
+        return this.stateValue;
     }
 
 }
