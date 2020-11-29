@@ -11,13 +11,13 @@ class ResumeView {
 	public ResumeView() {
 	}
 
-	public ResumeView(ResumeController resumeController){
+	public ResumeView(ResumeController resumeController) {
 		this.resumeController = resumeController;
 	}
 
 	boolean interact() {
 		boolean isResumed = new YesNoDialog().read(Message.RESUME.toString());
-		if (isResumed){
+		if (isResumed) {
 			this.resumeController.resume();
 		}
 		return isResumed;
@@ -25,9 +25,7 @@ class ResumeView {
 
 	boolean interact(ResumeController resumeController) {
 		boolean isResumed = new YesNoDialog().read(Message.RESUME.toString());
-		if (isResumed){
-			resumeController.resume();
-		}
+		resumeController.resume(isResumed);
 		return isResumed;
 	}
 
