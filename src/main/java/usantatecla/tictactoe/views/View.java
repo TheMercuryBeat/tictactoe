@@ -19,6 +19,7 @@ public abstract class View implements ControllerVisitor {
     protected abstract boolean isResumed();
 
     public void interact(Controller controller) {
+        controller.accept(this);
     }
 
 }
