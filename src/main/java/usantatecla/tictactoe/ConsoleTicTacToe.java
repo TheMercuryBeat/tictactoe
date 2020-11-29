@@ -18,6 +18,6 @@ class ConsoleTicTacToe extends TicTacToe {
 
 	@Override
 	protected View createView() {
-		return null;
+		return new View();
 	}
 }

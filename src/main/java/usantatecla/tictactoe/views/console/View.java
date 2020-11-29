@@ -10,6 +10,9 @@ public class View extends usantatecla.tictactoe.views.View {
 	private PlayView playView;
 	private ResumeView resumeView;
 
+	public View() {
+	}
+
 	public View(StartController startController, PlayController playController, ResumeController resumeController) {
 		this.startView = new StartView(startController);
 		this.playView = new PlayView(playController);
