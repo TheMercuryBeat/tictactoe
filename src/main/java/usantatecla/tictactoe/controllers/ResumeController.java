@@ -18,7 +18,9 @@ public class ResumeController extends Controller {
     }
 
     public void resume(boolean newGame) {
-
+        if (!newGame) {
+            this.state.next();
+        }
     }
 
     @Override
