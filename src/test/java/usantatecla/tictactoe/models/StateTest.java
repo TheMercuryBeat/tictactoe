@@ -20,4 +20,14 @@ public class StateTest {
         assertThat(this.state.getValueState(), is(equalTo(StateValue.INITIAL)));
     }
 
+    @Test
+    public void testGivenStateWhenDoNextShouldReturnTheStateValue() {
+
+        for (StateValue stateValue : StateValue.values()) {
+            this.state.next();
+            assertThat(this.state.getValueState(), is(equalTo(stateValue)));
+        }
+
+    }
+
 }
