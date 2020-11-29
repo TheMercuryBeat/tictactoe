@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.PlayController;
 import usantatecla.tictactoe.controllers.ResumeController;
@@ -35,6 +36,7 @@ public class ViewTest {
     @Mock
     private ResumeView resumeView;
 
+    @Spy
     @InjectMocks
     private View view;
 
@@ -59,6 +61,12 @@ public class ViewTest {
     void testGivenViewWhenResumeViewIsVisitedThenShouldInteractWithResumeController() {
         view.visit(resumeController);
         verify(resumeView).interact(eq(resumeController));
+    }
+
+    @Test
+    void testGivenViewWhenInteractWithAControllerThenShouldAcceptTheView() {
+        view.interact(startController);
+        verify(startController).accept(eq(view));
     }
 
 }
