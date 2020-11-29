@@ -40,7 +40,7 @@ public class View extends usantatecla.tictactoe.views.View implements Controller
 
 	@Override
 	public void visit(StartController startController) {
-
+		this.startView.interact(startController);
 	}
 
 }
