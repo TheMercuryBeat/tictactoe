@@ -30,7 +30,7 @@ public class ViewTest {
     }
 
     @Test
-    void testGivenNewStartViewWhenReadNumberOfUsersThenGameSetNumberOfUsers() {
+    void testGivenViewWhenStartViewIsVisitedThenShouldInteractWithStartController() {
         view.visit(startController);
         verify(startView).interact(eq(startController));
     }
