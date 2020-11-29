@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import usantatecla.tictactoe.controllers.PlayController;
 import usantatecla.tictactoe.controllers.StartController;
 
 import static org.mockito.ArgumentMatchers.eq;
@@ -19,7 +20,13 @@ public class ViewTest {
     private StartController startController;
 
     @Mock
+    private PlayController playController;
+
+    @Mock
     private StartView startView;
+
+    @Mock
+    private PlayView playView;
 
     @InjectMocks
     private View view;
@@ -33,6 +40,12 @@ public class ViewTest {
     void testGivenViewWhenStartViewIsVisitedThenShouldInteractWithStartController() {
         view.visit(startController);
         verify(startView).interact(eq(startController));
+    }
+
+    @Test
+    void testGivenViewWhenPlayViewIsVisitedThenShouldInteractWithPlayController() {
+        view.visit(playController);
+        verify(playView).interact(eq(playController));
     }
 
 }
