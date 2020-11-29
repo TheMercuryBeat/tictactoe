@@ -18,11 +18,11 @@ public class ResumeController extends Controller {
     }
 
     public void resume(boolean newGame) {
-        if (!newGame) {
-            this.state.next();
-        } else {
+        if (newGame) {
             this.game.reset();
             this.state.reset();
+        } else {
+            this.state.next();
         }
     }
 
