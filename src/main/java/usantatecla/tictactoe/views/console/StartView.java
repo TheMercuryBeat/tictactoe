@@ -29,6 +29,7 @@ class StartView {
         Message.TITLE.writeln();
         int users = new LimitedIntDialog(0, startController.getMaxPlayers()).read(Message.NUMBER_PLAYERS.toString());
         startController.setUsers(users);
+        startController.start();
         new GameView(startController).write();
     }
 
