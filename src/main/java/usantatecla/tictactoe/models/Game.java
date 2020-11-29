@@ -3,10 +3,10 @@ package usantatecla.tictactoe.models;
 import usantatecla.tictactoe.types.Error;
 
 public class Game {
-    
+
     private Board board;
     private Turn turn;
-    
+
     public Game() {
         this.reset();
     }
@@ -51,15 +51,19 @@ public class Game {
     }
 
 	public Token getToken(Coordinate coordinate) {
-		return this.board.getToken(coordinate);
+        return this.board.getToken(coordinate);
     }
-    
-    public Token getToken() {
-		return this.turn.getToken();
-	}
 
-	public int getMaxPlayers() {
-		return Turn.NUMBER_PLAYERS;
-	}
+    public Token getToken() {
+        return this.turn.getToken();
+    }
+
+    public int getMaxPlayers() {
+        return Turn.NUMBER_PLAYERS;
+    }
+
+    public StateValue getValueState() {
+        return null;
+    }
 
 }
