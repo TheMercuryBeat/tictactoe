@@ -7,11 +7,11 @@ import usantatecla.tictactoe.views.console.View;
 public abstract class TicTacToe {
 
     private Logic logic;
-    private View newView;
+    private View view;
 
     protected TicTacToe() {
         this.logic = new Logic();
-        this.newView = this.createView();
+        this.view = this.createView();
     }
 
     protected abstract View createView();
@@ -21,7 +21,7 @@ public abstract class TicTacToe {
         do {
             controller = this.logic.getController();
             if (controller != null) {
-                this.newView.interact(controller);
+                this.view.interact(controller);
             }
         } while (controller != null);
     }

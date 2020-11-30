@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import usantatecla.tictactoe.controllers.*;
-import usantatecla.tictactoe.models.StateValue;
+import usantatecla.tictactoe.controllers.Logic;
+import usantatecla.tictactoe.controllers.PlayController;
+import usantatecla.tictactoe.controllers.ResumeController;
+import usantatecla.tictactoe.controllers.StartController;
 import usantatecla.tictactoe.views.View;
-
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.eq;
@@ -23,13 +23,7 @@ abstract class TicTacToeTest {
     protected Logic logic;
 
     @Mock
-    protected View newView;
-
-    @Mock
     protected View view;
-
-    @Mock
-    protected Map<StateValue, Controller> controllers;
 
     @Mock
     protected StartController startController;
@@ -61,9 +55,9 @@ abstract class TicTacToeTest {
 
         this.ticTacToe.init();
 
-        verify(this.newView, times(1)).interact(eq(this.startController));
-        verify(this.newView, times(1)).interact(eq(this.playController));
-        verify(this.newView, times(1)).interact(eq(this.resumeController));
+        verify(this.view, times(1)).interact(eq(this.startController));
+        verify(this.view, times(1)).interact(eq(this.playController));
+        verify(this.view, times(1)).interact(eq(this.resumeController));
 
     }
 
