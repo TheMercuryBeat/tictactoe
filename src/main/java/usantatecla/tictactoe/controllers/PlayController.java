@@ -8,10 +8,6 @@ import usantatecla.tictactoe.types.Error;
 
 public class PlayController extends Controller {
 
-	public PlayController(Game game) {
-		super(game);
-	}
-
 	public PlayController(Game game, State state) {
 		super(game, state);
 	}

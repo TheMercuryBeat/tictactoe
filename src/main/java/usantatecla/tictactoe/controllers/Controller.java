@@ -10,10 +10,6 @@ public abstract class Controller {
 	protected Game game;
 	protected State state;
 
-	Controller(Game game) {
-		this.game = game;
-	}
-
 	public Controller(Game game, State state) {
 		this.game = game;
 		this.state = state;
