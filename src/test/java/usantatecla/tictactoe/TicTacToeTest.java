@@ -68,11 +68,6 @@ abstract class TicTacToeTest {
     }
 
     @Test
-    void testShouldReturnAViewWhenTheControllersArePassedByConstructor() {
-        assertNotNull(this.ticTacToe.createView(startController, playController, resumeController));
-    }
-
-    @Test
     void testShouldReturnAViewWhenNothingIsPassedByConstructor() {
         assertNotNull(this.ticTacToe.createView());
     }
