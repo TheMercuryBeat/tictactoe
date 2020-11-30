@@ -5,25 +5,30 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import usantatecla.tictactoe.controllers.Logic;
-import usantatecla.tictactoe.controllers.PlayController;
-import usantatecla.tictactoe.controllers.ResumeController;
-import usantatecla.tictactoe.controllers.StartController;
+import usantatecla.tictactoe.controllers.*;
+import usantatecla.tictactoe.models.StateValue;
 import usantatecla.tictactoe.views.View;
 
+import java.util.Map;
+
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 @ExtendWith(MockitoExtension.class)
 abstract class TicTacToeTest {
 
     @Mock
-    private Logic logic;
+    protected Logic logic;
 
     @Mock
-    private View view;
+    protected View newView;
+
+    @Mock
+    protected View view;
+
+    @Mock
+    protected Map<StateValue, Controller> controllers;
 
     @Mock
     protected StartController startController;
@@ -47,9 +52,17 @@ abstract class TicTacToeTest {
     @Test
     void test() {
 
-        when(this.logic.getController()).thenReturn(this.startController);
-        ticTacToe.init();
-        verify(view).interact(eq(this.startController));
+        when(this.logic.getController())
+                .thenReturn(this.startController)
+                .thenReturn(this.playController)
+                .thenReturn(this.resumeController)
+                .thenReturn(null);
+
+        this.ticTacToe.init();
+
+        verify(this.newView, times(1)).interact(eq(this.startController));
+        verify(this.newView, times(1)).interact(eq(this.playController));
+        verify(this.newView, times(1)).interact(eq(this.resumeController));
 
     }
 
