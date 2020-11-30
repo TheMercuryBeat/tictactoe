@@ -11,6 +11,7 @@ import usantatecla.tictactoe.views.View;
 
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.openMocks;
@@ -64,6 +65,16 @@ abstract class TicTacToeTest {
         verify(this.newView, times(1)).interact(eq(this.playController));
         verify(this.newView, times(1)).interact(eq(this.resumeController));
 
+    }
+
+    @Test
+    void testShouldReturnAViewWhenTheControllersArePassedByConstructor() {
+        assertNotNull(this.ticTacToe.createView(startController, playController, resumeController));
+    }
+
+    @Test
+    void testShouldReturnAViewWhenNothingIsPassedByConstructor() {
+        assertNotNull(this.ticTacToe.createView());
     }
 
 }
