@@ -10,8 +10,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.ResumeController;
 import usantatecla.utils.Console;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -33,25 +31,6 @@ public class ResumeViewTest {
     @BeforeEach
     void before() {
         openMocks(this);
-    }
-
-    @Test
-    void testGivenNewGameIsFalseWhenInteractThenIsFalse() {
-        try (MockedStatic console = mockStatic(Console.class)) {
-            when(this.console.readChar(anyString())).thenReturn('n');
-            console.when(Console::getInstance).thenReturn(this.console);
-            assertThat(this.resumeView.interact(), is(false));
-        }
-    }
-
-    @Test
-    void testGivenNewGameIsTrueWhenInteractThenIsTrue() {
-        try (MockedStatic console = mockStatic(Console.class)) {
-            when(this.console.readChar(anyString())).thenReturn('y');
-            this.resumeController.resume();
-            console.when(Console::getInstance).thenReturn(this.console);
-            assertThat(this.resumeView.interact(), is(true));
-        }
     }
 
     @Test
