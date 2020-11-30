@@ -35,19 +35,6 @@ public class StartViewTest {
     }
 
     @Test
-    void testGivenNewStartViewWhenReadNumberOfUsersThenGameSetNumberOfUsers() {
-        try (MockedStatic console = mockStatic(Console.class)) {
-            when(this.console.readInt(anyString())).thenReturn(1);
-            when(this.startController.getMaxPlayers()).thenReturn(2);
-            when(this.startController.getToken(any(Coordinate.class))).thenReturn(Token.X);
-            console.when(Console::getInstance).thenReturn(this.console);
-            this.startView.interact();
-            verify(this.console).writeln(Message.TITLE.toString());
-            verify(this.startController).setUsers(1);
-        }
-    }
-
-    @Test
     void testGivenStartViewWhenAStartControllerIsPassedByParameterAndReadNumberOfUsersThenGameSetNumberOfUsers() {
         try (MockedStatic console = mockStatic(Console.class)) {
             when(this.console.readInt(anyString())).thenReturn(1);
