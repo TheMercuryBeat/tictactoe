@@ -50,7 +50,7 @@ abstract class TicTacToeTest {
     protected abstract TicTacToe createTicTacToe();
 
     @Test
-    void test() {
+    void testShouldInteractWithEachController() {
 
         when(this.logic.getController())
                 .thenReturn(this.startController)
