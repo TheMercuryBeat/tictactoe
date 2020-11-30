@@ -7,35 +7,12 @@ import usantatecla.tictactoe.views.Message;
 
 class PlayView {
 
-    private PlayController playController;
-
-    public PlayView() {
-    }
-
-    PlayView(PlayController playController) {
-        this.playController = playController;
-    }
-
-    void interact() {
-        do {
-            //this.playController.next();
-            if (!this.playController.isBoardComplete()) {
-                this.put();
-            } else {
-                this.move();
-            }
-            new GameView(this.playController).write();
-        } while (!this.playController.isTicTacToe());
-        new TokenView(this.playController.getToken()).write();
-        Message.PLAYER_WIN.writeln();
-    }
-
     void interact(PlayController playController) {
         do {
             if (!playController.isBoardComplete()) {
-                this.put();
+                this.put(playController);
             } else {
-                this.move();
+                this.move(playController);
             }
             new GameView(playController).write();
         } while (!playController.isTicTacToe());
@@ -44,8 +21,8 @@ class PlayView {
         playController.continueState();
     }
 
-    private void put() {
-        boolean isUser = this.playController.isUser();
+    private void put(PlayController playController) {
+        boolean isUser = playController.isUser();
         Coordinate coordinate;
         Error error;
         do {
@@ -54,15 +31,15 @@ class PlayView {
             } else {
                 coordinate = createRandomCoordinate();
             }
-            error = this.playController.put(coordinate);
+            error = playController.put(coordinate);
             if (isUser) {
                 new ErrorView(error).writeln();
             }
         } while (!error.isNull());
     }
 
-    private void move() {
-        boolean isUser = this.playController.isUser();
+    private void move(PlayController playController) {
+        boolean isUser = playController.isUser();
         Coordinate origin;
         Coordinate target;
         Error error;
@@ -74,7 +51,7 @@ class PlayView {
                 origin = createRandomCoordinate();
                 target = createRandomCoordinate();
             }
-            error = this.playController.move(origin, target);
+            error = playController.move(origin, target);
             if (isUser) {
                 new ErrorView(error).writeln();
             }
